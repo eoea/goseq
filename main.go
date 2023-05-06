@@ -99,8 +99,6 @@ func main() {
 		if len(min) < len(max) {
 			padded_length = len(max)
 		}
-		parseHelper(input)
-	} else {
-		parseHelper(input)
 	}
+	parseHelper(input)
 }
