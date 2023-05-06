@@ -55,20 +55,17 @@ func checkErr(err error) {
 
 func parseHelper(input []string) {
 	// Parses the input and calls the seq for the input.
+	min, err := strconv.ParseFloat(input[0], 64)
+	checkErr(err)
+
 	switch len(input) {
 	case 1:
-		min, err := strconv.ParseFloat(input[0], 64)
-		checkErr(err)
 		seq(min, min)
 	case 2:
-		min, err := strconv.ParseFloat(input[0], 64)
-		checkErr(err)
 		max, err := strconv.ParseFloat(input[1], 64)
 		checkErr(err)
 		seq(min, max)
 	case 3:
-		min, err := strconv.ParseFloat(input[0], 64)
-		checkErr(err)
 		_incr, err := strconv.ParseFloat(input[1], 64)
 		checkErr(err)
 		max, err := strconv.ParseFloat(input[2], 64)
@@ -92,20 +89,14 @@ func main() {
 	input := flag.Args()
 
 	if *fixedWidth {
-		var min string
-		var max string
-		if len(input) == 2 {
-			min = input[0]
-			max = input[1]
-		}
+		min := input[0]
+		max := input[1]
 		if len(input) == 3 {
-			min = input[0]
 			max = input[2]
 		}
 
-		if len(min) > len(max) {
-			padded_length = len(min)
-		} else {
+		padded_length = len(min)
+		if len(min) < len(max) {
 			padded_length = len(max)
 		}
 		parseHelper(input)
