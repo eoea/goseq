@@ -11,11 +11,14 @@ Usage:
 
 ```go
 // Example 1:
-go run main.go 1 5
+go run main.go 5
 
 // Example 2:
-go run main.go 1 .5 2
+go run main.go 1 5
 
 // Example 3:
+go run main.go 1 .5 2
+
+// Example 4:
 go run main.go -w 1 2 100
 ```
