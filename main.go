@@ -60,7 +60,7 @@ func parseHelper(input []string) {
 
 	switch len(input) {
 	case 1:
-		seq(min, min)
+		seq(1, min)
 	case 2:
 		max, err := strconv.ParseFloat(input[1], 64)
 		checkErr(err)
